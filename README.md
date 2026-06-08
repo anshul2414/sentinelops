@@ -18,7 +18,7 @@ Green/cream UI inspired by the Starbucks design system.
 - No secrets in code (env-driven `SECRET_KEY`); `.env` git-ignored; API docs disabled in prod.
 - Parameterized ORM access only (no raw SQL); strict Pydantic validation; Bearer-token auth for programmatic/MCP use.
 - CI: **CodeQL** + **pip-audit** workflow (`.github/workflows/security.yml`).
-
+  link - https://sentinelops-siem.onrender.com
 ```
 ┌──────────────┐     REST + MCP      ┌────────────────────┐      ┌──────────────┐
 │  Frontend    │  ◀───────────────▶  │   FastAPI backend  │ ◀──▶ │  Database    │
