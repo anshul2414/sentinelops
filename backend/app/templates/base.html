@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SentinelOps SIEM{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#006241;--green-accent:#00754A;--green-house:#1E3932;--green-light:#d4e9e2;
+      --gold:#cba258;--gold-lightest:#faf6ee;--cream:#f2f0eb;--white:#fff;--ink:rgba(0,0,0,.87);
+      --ink-soft:rgba(0,0,0,.58);--line:#e7e7e7;--red:#b3261e}
+    *{box-sizing:border-box}html,body{margin:0;padding:0}
+    body{font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:-.01em;color:var(--ink);
+      background:var(--cream);min-height:100dvh;display:grid;place-items:center;padding:24px}
+    .auth-wrap{width:100%;max-width:920px;display:grid;grid-template-columns:1fr 1fr;
+      background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,.08)}
+    @media(max-width:760px){.auth-wrap{grid-template-columns:1fr;max-width:440px}.brandside{display:none}}
+    .brandside{background:var(--green-house);color:#fff;padding:40px 36px;display:flex;flex-direction:column}
+    .blogo{width:46px;height:46px;border-radius:50%;background:var(--green-accent);display:grid;place-items:center;font-size:23px;margin-bottom:22px}
+    .brandside h2{font-size:24px;margin:0 0 10px;letter-spacing:-.02em}
+    .brandside p{color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.6}
+    .feat{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px;color:rgba(255,255,255,.9)}
+    .feat .d{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:13px}
+    .sub{color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-top:auto;padding-top:24px}
+    .formside{padding:40px 38px}
+    .formside h1{font-size:22px;margin:0 0 4px;color:var(--green)}
+    .formside .lead{color:var(--ink-soft);font-size:13.5px;margin:0 0 24px}
+    label{display:block;font-size:12px;font-weight:700;color:var(--ink);margin:14px 0 6px}
+    input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:50px;font-size:14px;outline:none;font-family:inherit;transition:.15s}
+    input:focus{border-color:var(--green-accent);box-shadow:0 0 0 3px rgba(0,117,74,.14)}
+    .btn{width:100%;margin-top:22px;border:none;border-radius:50px;padding:13px;font-weight:700;font-size:14px;
+      background:var(--green-accent);color:#fff;cursor:pointer;transition:transform .1s,background .15s}
+    .btn:hover{background:var(--green)}.btn:active{transform:scale(.97)}
+    .alt{text-align:center;margin-top:18px;font-size:13px;color:var(--ink-soft)}
+    .alt a{color:var(--green-accent);font-weight:700;text-decoration:none}
+    .err{background:#fbe6e4;color:var(--red);border:1px solid #f3c4bf;border-radius:12px;padding:11px 14px;font-size:13px;font-weight:600;margin-bottom:18px}
+    .hint{font-size:11.5px;color:var(--ink-soft);margin-top:6px}
+  </style>
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="brandside">
+      <div class="blogo">◈</div>
+      <h2>SentinelOps SIEM</h2>
+      <p>Real-time security analytics, AI-driven threat detection, and MITRE ATT&amp;CK correlation across your environment.</p>
+      <div class="feat"><span class="d">🔍</span> SPL-style search &amp; investigation</div>
+      <div class="feat"><span class="d">🤖</span> AI Security Analyst</div>
+      <div class="feat"><span class="d">🔌</span> MCP-ready for AI agents</div>
+      <div class="sub">SIEM Platform · v2.5</div>
+    </div>
+    <div class="formside">
+      {% block form %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>

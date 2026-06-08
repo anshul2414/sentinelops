@@ -1,0 +1,25 @@
+# Render.com blueprint — one-click deploy (https://render.com/docs/blueprint-spec)
+services:
+  - type: web
+    name: sentinelops-siem
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /login
+    envVars:
+      - key: ENV
+        value: prod
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: SECRET_KEY
+        generateValue: true        # Render generates a strong secret
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sentinelops-db
+          property: connectionString
+
+databases:
+  - name: sentinelops-db
+    plan: free
+    databaseName: sentinelops
+    user: siem

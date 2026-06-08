@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Sign in · SentinelOps{% endblock %}
+{% block form %}
+  <h1>Welcome back</h1>
+  <p class="lead">Sign in to your security operations console.</p>
+  {% if error %}<div class="err">{{ error }}</div>{% endif %}
+  <form method="post" action="/login" autocomplete="on">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label for="username">Username</label>
+    <input id="username" name="username" required maxlength="32" autocomplete="username" value="{{ username|default('') }}">
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required autocomplete="current-password">
+    <button class="btn" type="submit">Sign in →</button>
+  </form>
+  <div class="alt">New to SentinelOps? <a href="/register">Create an account</a></div>
+{% endblock %}
