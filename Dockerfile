@@ -7,4 +7,5 @@ COPY frontend /srv/frontend
 ENV PYTHONUNBUFFERED=1
 EXPOSE 8000
 WORKDIR /srv/backend
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Bind to the port Render provides ($PORT), falling back to 8000 locally.
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
